@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Linear Regression</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .container {
+            width: 500px;
+            margin: 0 auto;
+        }
+        form {
+            margin-bottom: 20px;
+        }
+        label {
+            margin-right: 10px;
+        }
+        input {
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Modify Linear Regression Parameters</h1>
+        <p>Linear Regression Formula: y = a ⋅ x + b + c ⋅ N(0, variance)</p>
+        <form id="regressionForm" action="/plot" method="POST">
+            <label for="a">Slope (a) - 斜率: </label>
+            <input type="number" id="a" name="a" value="1" step="any"><br>
+
+            <label for="b">Intercept (b) - 截距: </label>
+            <input type="number" id="b" name="b" value="0" step="any"><br>
+            
+            <label for="c">Noise Factor (c) - 噪聲因子: </label>
+            <input type="number" id="c" name="c" value="1" step="any"><br>
+
+            <label for="variance">Variance - 方差 (N(0, variance)): </label>
+            <input type="number" id="variance" name="variance" value="10" step="any"><br>
+            
+            <label for="n">Number of Points (n) - 資料點數量: </label>
+            <input type="number" id="n" name="n" value="100" step="1"><br>
+            
+            <input type="submit" value="Generate Plot">
+        </form>
+        <div>
+            <img id="plot" src="{{ plot_url }}" alt="Your plot will appear here after you submit the form." />
+        </div>
+    </div>
+</body>
+</html>
